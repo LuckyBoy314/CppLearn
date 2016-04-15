@@ -24,12 +24,24 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\MyVector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CppLearn.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\sortings.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\Range.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\MyVector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
