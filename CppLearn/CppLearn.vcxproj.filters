@@ -24,7 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\MyVector.h">
+    <ClInclude Include="MyVector.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,14 +35,17 @@
     <ClCompile Include="CppLearn.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\sortings.cpp">
+    <ClCompile Include="MyVector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\Range.cpp">
+    <ClCompile Include="Range.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\MyVector.cpp">
+    <ClCompile Include="sortings.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

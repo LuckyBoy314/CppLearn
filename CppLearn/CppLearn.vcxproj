@@ -141,21 +141,24 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\MyVector.h" />
+    <ClInclude Include="MyVector.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppLearn.cpp" />
-    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\MyVector.cpp" />
-    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\MyTest\sortings.cpp" />
-    <ClCompile Include="D:\WorkSpace\Visual Studio 2015\Projects\MyTest\Range.cpp" />
+    <ClCompile Include="MyVector.cpp" />
+    <ClCompile Include="Range.cpp" />
+    <ClCompile Include="sortings.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
