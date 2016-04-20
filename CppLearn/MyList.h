@@ -65,10 +65,10 @@ public:
 	
 	ListNode<T>* insertAsFirst(const T& e);
 	ListNode<T>* insertAsLast(const T& e);
-	ListNode<T>* insertPred(ListNode<T>* p, const T& e);
-	ListNode<T>* insertSucc(ListNode<T>* p, const T& e);
+	ListNode<T>* insertBefore(ListNode<T>* p, const T& e);
+	ListNode<T>* insertAfter(ListNode<T>* p, const T& e);
 
-
+	 
 };
 
 
