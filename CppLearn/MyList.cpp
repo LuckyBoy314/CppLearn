@@ -49,6 +49,21 @@ void List<T>::copyNodes(ListNode<T>* p, int n) //从位置p开始，共有n个节点要复制
 }
 
 template<typename T>
+void List<T>::selectionSort(ListNode<T>* p, int n)
+{
+	ListNode<T>* head = p->pred;
+	ListNode<T>* tail = p;
+	for (int i = 0; i < n; i++)
+		tail = tail->succ;
+
+	while (1 < n) {
+		insertBefore(tail, remove(selectMax(head->succ, n));//insertBefore和remove的操作需要动态分配和删除内存，实际时间开销较大
+		tail = tail->pred;								    //应该考虑优化
+		n--;
+	}
+}
+
+template<typename T>
 List<T>::List(const List<T>& L)
 {
 	copyNodes(L.first(),L._size)
@@ -88,6 +103,16 @@ ListNode<T>* List<T>::find(const T & e, int n, ListNode<T>* p) const//从后往前找
 	while(0<n--)
 		if(e == (p=p->pred)->data) return p;
 	return 0;
+}
+
+template<typename T>//返回不大于e的最后位置
+ListNode<T>* List<T>::search(const T & e, int n, ListNode<T>* p) const
+{
+	while (0<n--){
+		if (((p = p->pred)->data) <= e)
+			break;
+	}
+	return p;
 }
 
 template<typename T>
@@ -141,4 +166,31 @@ int List<T>::deduplicate()
 		q ? remove(q) : r++;
 	}
 	return oldSize - _size;
+}
+
+template<typename T>
+int List<T>::uniquify()
+{
+	if (_size < 2)return 0;
+	int oldSize = _size;
+	ListNode<T>* p = first();
+	ListNode<T>* q;
+	while (tailer != (q = p->succ)) {
+		if (p->data != q->data) 
+			p = q;
+		else
+			remove(q);
+	}
+
+	return oldSize - _size;
+}
+
+template<typename T>
+void List<T>::sort(ListNode<T>* p, int n)//以位置p为起点的向后n个元素（包括p位置上的元素）需要排序
+{
+	switch (rand()%3){
+		case 1:insertionSort(p, n); break;//插入排序
+		case 2:selectionSort(p, n); break;//选择排序
+		default: mergeSort(p, n); break;//归并排序
+	}
 }

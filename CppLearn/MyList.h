@@ -30,6 +30,7 @@ protected:
 	void merge(ListNode<T>* &, int, List<T>&, ListNode<T>*, int);
 	void mergeSort(ListNode<T>*&, int);
 	void selectionSort(ListNode<T>*, int);
+	void insertionSort(ListNode<T>*, int);
 public:
 //构造函数
 	List() {init();}//默认
@@ -70,8 +71,14 @@ public:
 	ListNode<T>* insertAfter(ListNode<T>* p, const T& e);
 
 	T remove(ListNode<T>* p);
-	int deduplicate();
-	
+	int deduplicate();//无序去重
+	int uniquify();//有序去重
+
+	void merge(List<T>& L) {
+		merge(first(), _size, L, L.first(), L._size);
+	}
+	void sort(ListNode<T>* p, int n);
+
 };
 
 
