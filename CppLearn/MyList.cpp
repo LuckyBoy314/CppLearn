@@ -30,6 +30,15 @@ void List<T>::init()
 }
 
 template<typename T>
+int List<T>::clear()
+{
+	int oldSize = _size;
+	while (0 < _size)//remove函数内含了_size-1，因此无需_size--；
+		remove(header->succ);
+	return oldSize;
+}
+
+template<typename T>
 void List<T>::copyNodes(ListNode<T>* p, int n) //从位置p开始，共有n个节点要复制
 {
 	init();
@@ -55,6 +64,14 @@ template<typename T>
 List<T>::List(ListNode<T>* p, int n)
 {
 	copyNodes(p, n);
+}
+
+template<typename T>
+List<T>::~List()
+{
+	clear();
+	delete header;
+	delete tailer;
 }
 
 template<typename T>
@@ -99,4 +116,29 @@ ListNode<T>* List<T>::insertAfter(ListNode<T>* p, const T & e)
 {
 	_size++;
 	return p->insertAsSucc(e);
+}
+
+template<typename T>
+T List<T>::remove(ListNode<T>* p)
+{
+	T e = p->data;
+	p->succ->pred = p->pred;
+	p->pred->succ = p->succ;
+	_size--;
+	delete p;
+	return e;
+}
+
+template<typename T>
+int List<T>::deduplicate()
+{
+	if（_size < 2）return 0;
+	int oldSize = _size;
+	ListNode<T>* p = first();
+	Rank r = 1;
+	while (tailer != (p = p->succ)) {
+		ListNode<T>* q = find(p->data, r, p);
+		q ? remove(q) : r++;
+	}
+	return oldSize - _size;
 }
