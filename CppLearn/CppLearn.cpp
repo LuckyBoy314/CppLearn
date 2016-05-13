@@ -1,14 +1,9 @@
 // MyTest.cpp : 定义控制台应用程序的入口点。
 //
 
-
 #include "stdafx.h"
-#include <iostream>
-#include <iomanip>
-#include <climits>
-#include <time.h>
-#include <cmath>
-#include <cstdlib>
+	
+
 using namespace std;
 
 #ifdef COMPILE
@@ -132,71 +127,6 @@ unsigned long long fib_2(int n)
 
 
 
-/********************线性结构*******************************/
-/********线性表***************/
-//连续数组实现
-#define ElementType int
-#define MAXSIZE 100
-typedef struct {
-	ElementType Data[MAXSIZE];
-	int Last;
-}List;
-
-List *MakeEmpty()
-{
-	List* PtrL;
-	PtrL = (List*)malloc(sizeof(List));
-	PtrL->Last = -1;
-	return PtrL;
-}
-
-int Find(ElementType X, List* PtrL)
-{
-	int i = 0;
-	while (i <= PtrL->Last && PtrL->Data[i] != X)
-		i++;
-	if (i > PtrL->Last) return -1;
-	else return i;
-}
-void Insert(ElementType X, int i, List* PtrL)
-{
-	if (PtrL->Last == MAXSIZE - 1) {
-		cout << "表满了，无法插入" << endl;
-		return;
-	}
-	if (i<1 || i>PtrL->Last + 2) {
-		cout << "位置不合法，无法插入" << endl;
-		return;
-	}
-	for (int j = PtrL->Last; j >= i - 1; j--)
-		PtrL->Data[j + 1] = PtrL->Data[j];
-	PtrL->Data[i - 1] = X;
-	PtrL->Last++;
-	return;
-
-
-}
-//结构数组实现
-//链表实现+
-
-bool isUglyNum(int n)
-{
-	if (n == 1) return false;
-	int a[] = { 2, 3, 5 };
-	while (n != 1) {
-		for (int i = 0; i < 3; i++) {
-			if (n%a[i] == 0) {
-				n = n / a[i];
-				break;
-			}
-			else if (n%a[i] != 0 && i == 2)
-				return false;
-		}
-	}
-
-	return true;
-}
-
 #endif
 
 
@@ -221,15 +151,11 @@ int main()
 	cout << endl << "time used:" << duration << " s\n";
 #endif
 
-	void bubbleSort(int A[], int n);
-	int A[] = { 3, 4, 5, 3, 6, 9 };
-	int n = sizeof(A) / sizeof(int);
-	bubbleSort(A, n);
-
-	for (int& e : A) {
-		cout << e << ' ';
-	}
-
+	char A[] = { 'a','b','c','d','e','f' };
+	Stack<char> S(A, sizeof(A) / sizeof(char));
+	cout << S.size()<<endl;
+	cout << S.pop() << endl << S.size() << endl << S.pop() << endl << S.size() << endl;
+	
 
 	cin.get();
 	cin.get();

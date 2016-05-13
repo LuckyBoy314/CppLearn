@@ -10,6 +10,15 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#include <iostream>
+#include <iomanip>
+#include <climits>
+#include <time.h>
+#include <cmath>
+#include <cstdlib>
 
+#include "MyVector.h"
+#include "MyList.h"
+#include "MyStack.h"
 
 // TODO:  在此处引用程序需要的其他头文件
