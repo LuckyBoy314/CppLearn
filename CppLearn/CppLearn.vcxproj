@@ -141,6 +141,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyBinTree.h" />
     <ClInclude Include="MyList.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyVector.h" />
