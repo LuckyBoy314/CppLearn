@@ -20,5 +20,7 @@
 #include "MyVector.h"
 #include "MyList.h"
 #include "MyStack.h"
+#include "MyBinTree.h"
+#include "MyGraph.h"
 
 // TODO:  在此处引用程序需要的其他头文件

@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyBinTree.h" />
+    <ClInclude Include="MyGraph.h" />
     <ClInclude Include="MyList.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyVector.h" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppLearn.cpp" />
+    <ClCompile Include="MyGraph.cpp" />
     <ClCompile Include="MyList.cpp" />
     <ClCompile Include="MyStack.cpp" />
     <ClCompile Include="MyVector.cpp" />

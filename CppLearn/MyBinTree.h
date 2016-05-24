@@ -1,5 +1,6 @@
 #pragma once
 #include "MyStack.h"
+
 typedef enum{RB_RED,RB_BALACK} RBColor;
 #define stature(p) ((p)?p->height:-1)
 /******************************************************************************************
@@ -76,8 +77,8 @@ public:
 
 	template <typename VST> void travIn(BinNode<T>* x, VST&); //子树中序遍历
 
-	template <typename VST> void travPost(VST&); //子树后序遍历
-	template <typename VST> void travLevel(VST&); //子树层次遍历
+	template <typename VST> void travPost(BinNode<T>* x, VST&); //子树后序遍历
+	//template <typename VST> void travLevel(VST&); //子树层次遍历
 	BinTree();
 	~BinTree();
 };
@@ -208,6 +209,25 @@ void BinTree<T>::travIn(BinNode<T>* x, VST & visit)
 		x = S.pop();
 		visit(x->data);
 		x = x->rc;
+
+	}
+}
+
+template<typename T>
+template<typename VST>
+void BinTree<T>::travPost(BinNode<T>* x, VST & visit)
+{
+	Stack< BinNode<T>* > S;
+	while (true) {
+		while (x->rc || x->lc) {
+			S.push(x);
+
+			x = x->lc;  //沿左分支深入一层
+		}
+		if (S.empty()) break;
+		x = S.pop();
+		visit(x->data); 
+		x = x->parent->rc;
 
 	}
 }
