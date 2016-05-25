@@ -134,7 +134,16 @@ unsigned long long fib_2(int n)
 clock_t start, stop;// clock_t是clock()函数返回的变量类型
 double duration;//记录被测函数运行时间，以秒为单位
 
+void f(int* A, int n, int& max, int& max_second) {
+	if (!n) return;
+	int tmp = *A;
+	if (tmp>max)
+		max = tmp;
+	if (tmp>max_second && tmp<max)
+		max_second = tmp;
 
+	f(A++, --n, max, max_second);
+}
 
 int main()
 {
@@ -151,11 +160,10 @@ int main()
 	cout << endl << "time used:" << duration << " s\n";
 #endif
 
-	char A[] = { 'a','b','c','d','e','f' };
-	Stack<char> S(A, sizeof(A) / sizeof(char));
-	cout << S.size()<<endl;
-	cout << S.pop() << endl << S.size() << endl << S.pop() << endl << S.size() << endl;
-	
+	int A[] = { 1,2,4,5,8 };
+	int max = 0, max_second = 0;
+	f(A, 5, max, max_second);
+	std::cout << max << " " << max_second << std::endl;
 
 	cin.get();
 	cin.get();

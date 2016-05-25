@@ -25,6 +25,7 @@ typedef enum{RB_RED,RB_BALACK} RBColor;
  ( IsLChild( * ( (x)->parent ) ) ? (x)->parent->parent->rc : (x)->parent->parent->lc )
 #define FromParentTo(x) /*来自父亲的引用*/ \
 ( IsRoot(x) ? _root : ( IsLChild(x) ? (x).parent->lc : (x).parent->rc ) )
+
 template<typename T>
 struct BinNode {
 	T data;//数据域
@@ -58,9 +59,10 @@ protected:
 	virtual int updateHeight(BinNode<T>* x);
 	void updateHeightAbove(BinNode<T>* x);
 
-	template<typename VST>
-	static void visitAlongLeftBranch(BinNodePosi<T>* x, VST & visit, Stack<BinNodePosi<T>*>& S);
-	static void goAlongLeftBranch(BinNodePosi<T>* x, Stack<BinNodePosi<T>*>& S);
+	template<typename VST> 
+	static void visitAlongLeftBranch(BinNode<T>* x, VST & visit, Stack<BinNode<T>*>& S);
+
+	static void goAlongLeftBranch(BinNode<T>* x, Stack<BinNode<T>*>& S);
 
 public:
 	int size()const { return _size; }
@@ -130,6 +132,7 @@ BinNode<T>* BinTree<T>::insertAsLC(BinNode<T>* x, const T & e)
 	return x->lc;
 }
 
+template<typename T>
 BinNode<T>* BinTree<T>::insertAsRC(BinNode<T>* x, const T & e)
 {
 	_size++;
@@ -167,7 +170,7 @@ void BinTree<T>::travPre_v2(BinNode<T>* x, VST & visit)//迭代版1
 //从当前节点出发，沿左分支不断深入，直至没有左分支的节点；沿途节点遇到后立即访问
 template <typename T>
 template <typename VST> //元素类型、操作器
-static void  BinTree<T>::visitAlongLeftBranch(BinNode<T>* x, VST& visit, Stack<BinNode<T>* >& S) {
+void  BinTree<T>::visitAlongLeftBranch(BinNode<T>* x, VST& visit, Stack<BinNode<T>* >& S) {
     while (x) {
        visit(x->data); //访问当前节点
        S.push(x->rc); //右孩子入栈暂存（可优化：通过判断，避免空的右孩子入栈）
@@ -189,9 +192,8 @@ void BinTree<T>::travPre(BinNode<T>* x, VST & visit)
 }
 
 
-template <typename T>
-template <typename VST> //元素类型、操作器
-static void  BinTree<T>::goAlongLeftBranch(BinNode<T>* x, Stack<BinNode<T>* >& S) {
+template <typename T>//元素类型、操作器
+void  BinTree<T>::goAlongLeftBranch(BinNode<T>* x, Stack<BinNode<T>*>& S) {
 	while (x) {
 		S.push(x); 
 		x = x->lc;  //沿左分支深入一层
