@@ -46,7 +46,7 @@ public:
 	T& operator[](Rank r)const;
 
 	ListNode<T>* first()const { return header->succ; };
-	ListNode<T>* last()const { return tailer->pred };
+	ListNode<T>* last()const { return tailer->pred; };
 
 	bool valid(ListNode<T>* p) {
 		return p && (tailer != p) && (header != p);
@@ -56,7 +56,7 @@ public:
 
 	ListNode<T>* find(const T& e, int n, ListNode<T>* p)const;//从当前位置p向前查找n个元素，n最好是当前位置的秩
 	ListNode<T>* find(const T& e)const {
-		return find(e, _size,tailer)
+		return find(e, _size, tailer);
 	}
 
 	ListNode<T>* search(const T& e, int n, ListNode<T>* p)const;
@@ -146,7 +146,7 @@ void List<T>::selectionSort(ListNode<T>* p, int n)
 template<typename T>
 List<T>::List(const List<T>& L)
 {
-	copyNodes(L.first(), L._size)
+	copyNodes(L.first(), L._size);
 }
 
 template<typename T>
@@ -172,7 +172,7 @@ List<T>::~List()
 template<typename T>
 T& List<T>::operator[](Rank r) const
 {
-	ListNode<T>* p = fisrt();
+	ListNode<T>* p = first();
 	while (0 < r--) p = p->succ;
 	return p->data;
 }

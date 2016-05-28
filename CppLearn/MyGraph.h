@@ -156,7 +156,7 @@ void Graph<Tv, Te>::BFS(int v, int & clock){//v表示第v个顶点，是搜索的起始顶点
 	while (!Q.empty()){
 		int v = Q.dequeue();
 		dTime(v) = ++clock;
-		for(int u = firstNbr(); u>-1;u=nextNbr(v,v))
+		for(int u = firstNbr(v); u>-1;u=nextNbr(v,u))
 			if (status(u) == UNDISCOVERED) {
 				status(u) = DISCOVERED;
 				Q.enqueue(u);
@@ -177,7 +177,7 @@ template<typename Tv, typename Te>
 void Graph<Tv, Te>::DFS(int v, int& clock){
 	dTime(v) = ++clock;
 	status(v) = DISCOVERED;
-	for(int u = firstNbr();u > -1; u=nextNbr(v,u))
+	for(int u = firstNbr(v);u > -1; u=nextNbr(v,u))
 		switch (status(u)) {
 		case UNDISCOVERED:
 			type(v, u) = TREE;

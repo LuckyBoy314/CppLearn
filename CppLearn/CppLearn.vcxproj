@@ -144,6 +144,7 @@
     <ClInclude Include="MyBinTree.h" />
     <ClInclude Include="MyGraph.h" />
     <ClInclude Include="MyList.h" />
+    <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyVector.h" />
     <ClInclude Include="stdafx.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="CppLearn.cpp" />
     <ClCompile Include="MyGraph.cpp" />
     <ClCompile Include="MyList.cpp" />
+    <ClCompile Include="MyQueue.cpp" />
     <ClCompile Include="MyStack.cpp" />
     <ClCompile Include="MyVector.cpp" />
     <ClCompile Include="sortings.cpp" />
